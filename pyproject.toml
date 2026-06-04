@@ -6,13 +6,15 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "click>=8.4.1",
-    "openai>=2.41.0",
+    "keybert>=0.9.0",
     "rich>=15.0.0",
     "scikit-learn>=1.9.0",
     "sentence-transformers>=5.5.1",
     "spacy>=3.8.14",
     "srsly>=2.5.3",
     "thinc>=8.3.13",
+    "torch>=2.12.0",
+    "transformers>=5.10.2",
     "typer>=0.26.7",
     "wasabi>=1.1.3",
 ]

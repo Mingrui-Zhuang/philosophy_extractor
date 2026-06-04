@@ -1,9 +1,8 @@
 from pathlib import Path
-
 import typer
 from rich import print
-
 from philosophy_extractor.people import extract_people
+from philosophy_extractor.events import extract_events
 
 app = typer.Typer()
 
@@ -39,6 +38,12 @@ def analyze(file: str):
         ):
             print(f"- {name}: {count}")
 
+    events = extract_events(text)
+
+    print("\n[bold magenta]Key Events[/bold magenta]")
+
+    for event in events:
+        print(f"- {event['event']}")
 
 if __name__ == "__main__":
     app()
