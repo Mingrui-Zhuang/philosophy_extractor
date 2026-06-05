@@ -35,7 +35,6 @@ def analyze(file: str = typer.Argument(..., help="Path to the journal text file"
     text = path.read_text()
 
     # Extract people
-    print("[yellow]Extracting people...[/yellow]")
     people = extract_people(text)
 
     print("\n[bold cyan]People Mentioned[/bold cyan]")
@@ -51,7 +50,6 @@ def analyze(file: str = typer.Argument(..., help="Path to the journal text file"
             print(f"- {name}: {count}")
 
     # Extract events
-    print("\n[yellow]Extracting events...[/yellow]")
     events = extract_events(text)
 
     print("\n[bold magenta]Key Events[/bold magenta]")
@@ -60,7 +58,6 @@ def analyze(file: str = typer.Argument(..., help="Path to the journal text file"
         print(f"- {event['event']}")
 
     # Cluster events into themes
-    print("\n[yellow]Clustering events into themes...[/yellow]")
     themes = cluster_events(events)
 
     print("\n[bold green]Themes[/bold green]")
@@ -75,7 +72,6 @@ def analyze(file: str = typer.Argument(..., help="Path to the journal text file"
             print(f"  - {event}")
 
     # Infer values from themes
-    print("\n[yellow]Inferring core values...[/yellow]")
     value_results = infer_values(
         themes
     )

@@ -36,14 +36,11 @@ def split_sentences(text: str) -> list[str]:
 
     doc = nlp(text)
 
-    verbs = [token for token in doc if token.pos_ == "VERB"]
-
-    if verbs:
-        main_verb = verbs[0]
-        root_sentence = main_verb.sent.text.strip()
-        return [root_sentence]
-    # Fallback to simple sentence splitting
-    return [sent.text.strip() for sent in doc.sents if len(sent.text.strip()) > 15]
+    return [
+        sent.text.strip()
+        for sent in doc.sents
+        if len(sent.text.strip()) > 15
+    ]
 
 
 def extract_events(text: str) -> list[dict]:

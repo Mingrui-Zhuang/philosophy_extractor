@@ -67,14 +67,22 @@ def infer_values(themes: list[dict]) -> list[dict]:
 
     results = []
 
-    for value, score in (
-        value_scores.items()
-    ):
+    # Normalize scores proportionally to a 0-10 scale
+    if value_scores:
+        max_score = max(value_scores.values())
+    else:
+        max_score = 0.0
+
+    for value, score in value_scores.items():
+        if max_score > 0:
+            normalized = (score / max_score) * 10.0
+        else:
+            normalized = 0.0
 
         results.append(
             {
                 "value": value,
-                "score": round(score, 2),
+                "score": round(normalized, 2),
                 "events": list(
                     set(
                         value_evidence[
