@@ -2,7 +2,11 @@ import spacy
 from keybert import KeyBERT
 import re
 
-nlp = spacy.load("en_core_web_sm")
+from philosophy_extractor.people import (
+    load_spacy_model
+)
+
+nlp = load_spacy_model()
 kw_model = KeyBERT()
 
 def clean_sentence(

@@ -2,7 +2,36 @@ from collections import Counter
 import spacy
 
 # Load spaCy model once
-nlp = spacy.load("en_core_web_sm")
+import spacy
+from spacy.cli import download
+
+
+def load_spacy_model():
+    """
+    Load spaCy model.
+    Download automatically if missing.
+    """
+
+    model_name = "en_core_web_sm"
+
+    try:
+        return spacy.load(model_name)
+
+    except OSError:
+        print(
+            "spaCy language model not found."
+        )
+        print(
+            "Downloading "
+            "en_core_web_sm..."
+        )
+
+        download(model_name)
+
+        return spacy.load(model_name)
+
+
+nlp = load_spacy_model()
 
 
 def extract_people(text: str) -> dict[str, int]:
