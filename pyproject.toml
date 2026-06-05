@@ -30,3 +30,11 @@ build-backend = "hatchling.build"
 dev = [
     "ruff>=0.15.16",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/philosophy_extractor"]
+
+[tool.hatch.build]
+include = [
+    "src/philosophy_extractor/data/*.txt"
+]

@@ -12,6 +12,7 @@ from philosophy_extractor.values import (
 from philosophy_extractor.report import (
     generate_report
 )
+from importlib.resources import files
 
 app = typer.Typer()
 
@@ -127,4 +128,17 @@ def analyze(file: str = typer.Argument(..., help="Path to the journal text file"
 if __name__ == "__main__":
     app()
 
+@app.command()
+def demo():
+    """
+    Run the included sample journal.
+    """
+
+    sample_path = (
+        files("philosophy_extractor")
+        / "data"
+        / "sample_journal.txt"
+    )
+
+    analyze(str(sample_path))
     
