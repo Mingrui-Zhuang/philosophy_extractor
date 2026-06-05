@@ -8,7 +8,7 @@ The tool uses NLP techniques including spaCy named entity recognition, KeyBERT e
 
 **Install**:
 
-uv add git+https://github.com/Mingrui-Zhuang/philosophy_extractor
+uv add "git+https://github.com/Mingrui-Zhuang/philosophy_extractor"
 
 **Run**:
 
