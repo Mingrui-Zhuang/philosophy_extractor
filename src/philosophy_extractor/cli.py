@@ -9,6 +9,10 @@ from philosophy_extractor.clustering import (
 from philosophy_extractor.values import (
     infer_values
 )
+from philosophy_extractor.report import (
+    generate_report
+)
+
 app = typer.Typer()
 
 @app.callback()
@@ -16,7 +20,8 @@ def main():
     """Philosophy extractor commands."""
 
 @app.command()
-def analyze(file: str):
+def analyze(file: str = typer.Argument(..., help="Path to the journal text file"),
+            output: str = typer.Option("philosophy_report.md", help="Output report file")):
     """
     Analyze a journal text file.
     """
@@ -29,6 +34,8 @@ def analyze(file: str):
 
     text = path.read_text()
 
+    # Extract people
+    print("[yellow]Extracting people...[/yellow]")
     people = extract_people(text)
 
     print("\n[bold cyan]People Mentioned[/bold cyan]")
@@ -44,6 +51,7 @@ def analyze(file: str):
             print(f"- {name}: {count}")
 
     # Extract events
+    print("\n[yellow]Extracting events...[/yellow]")
     events = extract_events(text)
 
     print("\n[bold magenta]Key Events[/bold magenta]")
@@ -52,6 +60,7 @@ def analyze(file: str):
         print(f"- {event['event']}")
 
     # Cluster events into themes
+    print("\n[yellow]Clustering events into themes...[/yellow]")
     themes = cluster_events(events)
 
     print("\n[bold green]Themes[/bold green]")
@@ -66,6 +75,7 @@ def analyze(file: str):
             print(f"  - {event}")
 
     # Infer values from themes
+    print("\n[yellow]Inferring core values...[/yellow]")
     value_results = infer_values(
         themes
     )
@@ -95,6 +105,28 @@ def analyze(file: str):
             "events"
         ]:
             print(f"  - {event}")
+
+    # Generate report
+    report = generate_report(
+        people,
+        events,
+        themes,
+        value_results,
+    )
+
+    with open(
+        output,
+        "w",
+        encoding="utf-8"
+    ) as f:
+        f.write(report)
+
+    print(
+        f"\n[green]"
+        f"Report saved to "
+        f"{output}"
+        f"[/green]"
+    )
 
 if __name__ == "__main__":
     app()

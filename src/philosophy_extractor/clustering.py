@@ -65,7 +65,7 @@ def cluster_events(
 
         results.append(
             {
-                "theme": summary_word.title(),
+                "theme": f"Theme {label + 1}: {summary_word}",
                 "events": phrases,
             }
         )

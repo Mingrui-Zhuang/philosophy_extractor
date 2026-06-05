@@ -1,5 +1,5 @@
 
-Today I studied neuroscience with Alex.
+
 
 I failed a quiz and felt disappointed.
 Alex got a full score.
@@ -11,6 +11,7 @@ I found philosophy really hard to understand, most of the time I'm confusing
 I enrolled a Jazz course with Charles
 I became curious about jazz history.
 
+Today I studied neuroscience with Alex.
 I failed my neuroscience quiz.
 
 I spent hours studying neuroscience.

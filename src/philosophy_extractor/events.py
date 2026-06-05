@@ -1,9 +1,33 @@
 import spacy
 from keybert import KeyBERT
+import re
 
 nlp = spacy.load("en_core_web_sm")
 kw_model = KeyBERT()
 
+def clean_sentence(
+    sentence: str
+) -> str:
+    """
+    Remove dates and noisy numbers.
+    """
+
+    # Jan 16, January 16
+    sentence = re.sub(
+        r"\b(?:Jan|January|Feb|February|Mar|March|Apr|April|May|Jun|June|Jul|July|Aug|August|Sep|September|Oct|October|Nov|November|Dec|December)\s+\d{1,2}\b",
+        "",
+        sentence,
+        flags=re.IGNORECASE
+    )
+
+    # standalone numbers
+    sentence = re.sub(
+        r"\b\d+\b",
+        "",
+        sentence
+    )
+
+    return sentence.strip()
 
 def split_sentences(text: str) -> list[str]:
     """
@@ -12,11 +36,14 @@ def split_sentences(text: str) -> list[str]:
 
     doc = nlp(text)
 
-    return [
-        sent.text.strip()
-        for sent in doc.sents
-        if len(sent.text.strip()) > 15
-    ]
+    verbs = [token for token in doc if token.pos_ == "VERB"]
+
+    if verbs:
+        main_verb = verbs[0]
+        root_sentence = main_verb.sent.text.strip()
+        return [root_sentence]
+    # Fallback to simple sentence splitting
+    return [sent.text.strip() for sent in doc.sents if len(sent.text.strip()) > 15]
 
 
 def extract_events(text: str) -> list[dict]:
@@ -26,9 +53,13 @@ def extract_events(text: str) -> list[dict]:
 
     sentences = split_sentences(text)
 
+    cleaned_sentences = [
+        clean_sentence(sentence)
+        for sentence in sentences
+    ]
     events = []
 
-    for sentence in sentences:
+    for sentence in cleaned_sentences:
 
         keywords = kw_model.extract_keywords(
             sentence,
