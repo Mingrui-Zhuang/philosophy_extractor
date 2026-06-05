@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import spacy
 from keybert import KeyBERT
 import re
