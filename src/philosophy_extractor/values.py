@@ -74,10 +74,10 @@ def infer_values(themes: list[dict]) -> list[dict]:
         max_score = 0.0
 
     for value, score in value_scores.items():
-        if max_score > 0:
+        if max_score > 10:
             normalized = (score / max_score) * 10.0
         else:
-            normalized = 0.0
+            normalized = score
 
         results.append(
             {

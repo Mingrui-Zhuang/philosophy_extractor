@@ -12,7 +12,7 @@ embedding_model = SentenceTransformer(
 
 def cluster_events(
     events: list[dict],
-    n_clusters: int = 3
+    n_clusters: int = 5
 ) -> list[dict]:
     """
     Cluster similar event phrases into themes.
@@ -70,4 +70,9 @@ def cluster_events(
             }
         )
 
-    return results
+    return sorted(
+        results,
+        key=lambda item: int(
+            item["theme"].split()[1].rstrip(":")
+        ),
+    )
