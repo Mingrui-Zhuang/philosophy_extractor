@@ -2,79 +2,78 @@
 
 ## People Mentioned
 
-- Charles (3)
-- Annie (2)
+- Charles (4)
+- Annie (1)
 - Selina (1)
 
 ## Key Events
 
-- edge pieces charles
-- shadows stretch longer
+- extra questions charles
+- study philosophy
 - selina saved seat
-- mistake feels smaller
+- yesterday math mistake
 - chose blue cup
 - new word charles
-- solve math problem
-- answer hid question
+- biological problem
+- answer hid philosophy
 - roof warm tea
-- exam lock clicked
+- biological exam lock
 - blanket smells
 - worried math grades
 - charles shirt ugly
-- selina finished lunch
-- drew purple horse
+- annie wear blanket
+- horse orange stars
 - song head finally
-- da carried groceries
-- named annie money
+- carried groceries charles
+- join biological lab
+- little purchase joy
 - philosophy office hour
-- selina smiled listened
-- philosophy professor opportunity
+- selina smiled feel
 
 ## Themes
 
 
-### Theme 1: chose
+### Theme 1: math
+- yesterday math mistake
+- worried math grades
+
+### Theme 2: philosophy
+- study philosophy
+- answer hid philosophy
+- philosophy office hour
+
+### Theme 3: charles
+- extra questions charles
+- new word charles
+- charles shirt ugly
+- carried groceries charles
+- little purchase joy
+
+### Theme 4: biological
+- biological problem
+- biological exam lock
+- join biological lab
+
+### Theme 5: selina
+- selina saved seat
 - chose blue cup
 - roof warm tea
-- drew purple horse
-- song head finally
-- named annie money
-
-### Theme 2: charles
-- edge pieces charles
-- shadows stretch longer
-- mistake feels smaller
-- new word charles
 - blanket smells
-- charles shirt ugly
-
-### Theme 3: selina
-- selina saved seat
-- selina finished lunch
-- selina smiled listened
-
-### Theme 4: philosophy
-- philosophy office hour
-- philosophy professor opportunity
-
-### Theme 5: math
-- solve math problem
-- answer hid question
-- exam lock clicked
-- worried math grades
-- da carried groceries
+- annie wear blanket
+- horse orange stars
+- song head finally
+- selina smiled feel
 
 ## Core Values
 
 | Value | Score |
 |--------|-------|
-| Meaning | 10.0 |
-| Connection | 5.37 |
-| Belonging | 3.71 |
-| Creativity | 2.96 |
-| Curiosity | 1.17 |
-| Growth | 0.8 |
-| Security | 0.35 |
+| Meaning | 9.9 |
+| Connection | 7.09 |
+| Belonging | 6.53 |
+| Curiosity | 3.8 |
+| Security | 1.06 |
+| Growth | 1.01 |
 
 ## Philosophy Summary
 
