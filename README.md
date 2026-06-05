@@ -8,7 +8,7 @@ The tool uses NLP techniques including spaCy named entity recognition, KeyBERT e
 
 Install:
 
-uv add "git+https://github.com/yourname/repo.git"
+uv add git+https://github.com/Mingrui-Zhuang/philosophy_extractor
 
 Run:
 
@@ -17,3 +17,9 @@ philosophy-extractor analyze journal.txt
 Custom output report:
 
 philosophy-extractor analyze journal.txt --output my_report.md
+
+## Testing
+
+A sample journal file, `sample_journal.txt`, is included in the repository for quick testing. You can run the analyzer against it with:
+
+philosophy-extractor analyze sample_journal.txt
